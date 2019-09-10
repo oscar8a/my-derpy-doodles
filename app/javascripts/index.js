@@ -1,7 +1,6 @@
-document.addEventListener("DomContentLoaded", () =>{
+document.addEventListener("DOMContentLoaded", () =>{
 
-    const testDiv = document.getElementById("testdiv");
-    console.log(testDiv)
+    new DrawDoodle();
     
 
 
