@@ -4,7 +4,13 @@ class DoodleusersController < ApplicationController
     def index
         #byebug
         users = Doodleuser.all
-        render(json: users)
+        render json: DoodleuserSerializer.new(users)
+    end
+
+    def show
+        @user = Doodleuser.find(params[:id])
+        image = Doodleimage.find(params[:id])
+        render json: {name: @user.name, image: @user.doodle}
     end
 
     def create 

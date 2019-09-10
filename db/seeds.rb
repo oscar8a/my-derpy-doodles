@@ -8,3 +8,7 @@
 
 user1 = Doodleuser.create(name: "Oscar")
 user2 = Doodleuser.create(name: "Martin")
+
+image1 = Doodleimage.create(title: "Mandarin Duck", image: "a duck", message: "Chillin in Central Park", shareurl: "made-up", doodleuser_id: 1)
+image2 = Doodleimage.create(title: "Potato", image: "a potato", message: "I am beautiful", shareurl: "made-up", doodleuser_id: 1)
+image3 = Doodleimage.create(title: "Mug", image: "a mug", message: "I am HOT", shareurl: "made-up", doodleuser_id: 2)
