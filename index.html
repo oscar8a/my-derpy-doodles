@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <div id="createUser"> Create a username  or select from list</div>
-        <div id="doodleUser"> Show list of images and delete option</div>
-        <div id="drawImage"> Canvas box, drawing tools, and save button </div>
-        
-        <script src="app/javascripts/index.js"></script>
-        <script src="app/javascripts/drawDoodle.js"></script>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app/stylesheets/stylesheet.css">
+</head>
+
+<body>
+    <h1>MY DERPY DOODLES</h1>
+    <div id='main' class='derpy-div'>
+
+        <div id="testdiv">TEST DIV</div>
+
+        <h2>SIGN UP! 🤪</h2>
+
+        <p></p>
+
+        <form id='login-form'>
+            <label for="new-doodleuser"> Enter your Username </label>
+            <p></p>
+            <input type="text" placeholder="Click here to type...">
+            <button type="submit" class="login-submit">Submit</button>
+        </form>
+
+    </div>
+
+    <div id="users-div" class='derpy-div'>
+
+    </div>
+    <div id="drawImage"> Canvas box, drawing tools, and save button </div>
+
+    <script src="app/javascripts/index.js"></script>
+    <script src="app/javascripts/DoodleApp.js"></script>
+    <script src="app/javascripts/UserLogin.js"></script>
+    <script src="app/javascripts/UserList.js"></script>
+    <script src="app/javascripts/drawDoodle.js"></script>
+</body>
+
+
 </html>

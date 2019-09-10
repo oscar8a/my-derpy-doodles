@@ -1,0 +1,13 @@
+body {
+    background-image: url("https://www.joann.com/on/demandware.static/-/Sites-joann-product-catalog/default/dw3f4eccda/images/hi-res/16/16055873.jpg");
+    background-color: #cccccc;
+    text-align: center;
+}
+
+.derpy-div {
+    background-color: darkslategray;
+    border-style: solid;
+    border-radius: 5px;
+    margin: 3% 30%;
+    padding: 2%
+}
