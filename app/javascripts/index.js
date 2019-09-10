@@ -3,5 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Doodle App is only showing the Login Page for now
     new DoodleApp();
     new UserList();
-    new DrawDoodle();
+    const doodleDrawer = new DrawDoodle();
+    const doodleControls = new DoodleController();
+    
 })
