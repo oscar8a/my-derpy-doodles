@@ -29,6 +29,7 @@ class UserImages {
             .then(doodleUserData => {
                 console.log('Data has been fetched...')
                 console.log(doodleUserData)
+          
                 let doodleList = document.querySelector('#user-doodle-list')
                 doodleList.innerHTML = `<h2 id="username-header" data-userid=${id}> ${doodleUserData.data.attributes.name} </h2>`
 
