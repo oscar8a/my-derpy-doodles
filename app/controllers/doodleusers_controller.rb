@@ -8,9 +8,9 @@ class DoodleusersController < ApplicationController
     end
 
     def show
-        @user = Doodleuser.find(params[:id])
-        image = Doodleimage.find(params[:id])
-        render json: {name: @user.name, image: @user.doodle}
+        #@user = Doodleuser.find(params[:id])
+        #image = Doodleimage.find(params[:id])
+        render json: DoodleuserSerializer.new(@user)
     end
 
     def create 
