@@ -38,18 +38,12 @@ class DoodleController {
         this.doodleControllerDIV.setAttribute("id", "doodle-controller");
 
         // TOGGLE DISPLAYING DOODLE CREATION TOOLS
-        this.doodleDisplayDIV = document.getElementsByClassName("item3");
-        this.doodleDisplayDIV.style = "visibility: visible"; // or "visible/hidden"
+        //this.doodleDisplayDIV = document.getElementsByClassName("item3");
+        //this.doodleDisplayDIV.style = "visibility: visible"; // or "visible/hidden"
 
         // add to DOM
         this.doodleDIV.append(this.doodleControllerDIV);
 
-        // TESTING
-        this.testDIV = document.createElement("div");
-        this.doodleDIV.append(this.testDIV);
-
-        
-        
         
     }  // END CONSTRUCTOR
 
@@ -69,15 +63,17 @@ class DoodleController {
         event.preventDefault();
         const saveImageTitle = document.getElementById("doodle-title").value;
         const saveImageComment= document.getElementById("doodle-comment").value;
-        debugger
+        
+        // GET USER ID
+        const userID = document.getElementById("username-header").dataset.userId;
+        
+        // CREATE IMAGE FILE OF DOODLE
         const currentCanvas = document.getElementById("doodle-canvas-element");
         const saveimageinfo = currentCanvas.toDataURL();
 
-        // const temptitle ="Drawriiinggggg";
-        // const tempmessage ="";
-        // const userid = 1;
+        
         console.log("sending fetch request to save");
-        // save image info is a big ass string
+        
 
         fetch(this.imageURL,{
             method: "POST",
@@ -86,20 +82,32 @@ class DoodleController {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                doodleuser_id: userid,
+                doodleuser_id: userID,
                 title: saveImageTitle,
                 message: saveImageComment,
                 image: saveimageinfo
             })
         })
         .then(response => response.json())
-        .then(imageResponseData => console.log("image has been submitted", imageResponseData));
+        .then(this.imageSubmitted);
 
-        // fetch request to update TESTING
         // this.testImage = document.createElement("img");
         // this.testImage.setAttribute("src", decodeURIComponent(saveImageInfo));
-        // this.testDIV.append(this.testImage);
+        
     }
+
+    imageSubmitted(imageData){
+        // CLEAR CANVAS
+        const doodleCanvas = document.getElementById("doodle-canvas-element").getContext("2d");
+        doodleCanvas.setTransform(1, 0, 0, 1, 0, 0);
+        doodleCanvas.clearRect(0, 0, 600, 400);
+
+        // CLEAR FORM
+        document.getElementById("form-image").reset();
+        
+        
+    }
+    
 
 
 
