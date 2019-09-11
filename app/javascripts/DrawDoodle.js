@@ -5,7 +5,7 @@ class DrawDoodle{
         this.doodleCanvas.setAttribute("width", 600);
         this.doodleCanvas.setAttribute("height", 400);
         this.doodleCanvas.setAttribute("id", "doodle-canvas-element");
-        this.doodleCanvas.setAttribute("style", "border:1px solid #d3d3d3; background-color:white");
+        this.doodleCanvas.setAttribute("style", "border:5px solid #d3d3d3; background-color:white");
 
         // mouse event listeners
         this.context = this.doodleCanvas.getContext("2d");
@@ -17,7 +17,7 @@ class DrawDoodle{
 
         this.canvasDIV = document.getElementById("draw-image");
         this.canvasDIV.setAttribute("class", "derpy-div");
-        this.canvasDIV.setAttribute("style", "background-color:orange");
+        // this.canvasDIV.setAttribute("style", "background-color:orange");
         this.canvasDIV.append(this.doodleCanvas);
         
         // mouse defaults events
