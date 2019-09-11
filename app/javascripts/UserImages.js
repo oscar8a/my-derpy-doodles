@@ -29,7 +29,8 @@ class UserImages {
             .then(doodleUserData => {
                 console.log('Data has been fetched...')
                 console.log(doodleUserData)
-                document.querySelector('#user-doodle-list').innerHTML = `<h2> ${doodleUserData.data.attributes.name} </h2>`
+                let doodleList = document.querySelector('#user-doodle-list')
+                doodleList.innerHTML = `<h2 id="username-header" data-userid=${id}> ${doodleUserData.data.attributes.name} </h2>`
 
                 const doodleArr = doodleUserData.data.attributes.doodleimages;
                 console.log(doodleArr)
@@ -44,5 +45,13 @@ class UserImages {
     slapImgToDOM(data) {
         console.log(`In the slapImgtoDOM for ${data.title}`);
         document.querySelector('#user-doodle-list').innerHTML += `<h3>${data.title}</h3>`;
+        console.log(data.image)
+        const theDoodleData = data.image;
+
+        const doodleDiv = document.createElement('img')
+        doodleDiv.setAttribute("src", decodeURIComponent(theDoodleData));
+
+        //.innerHTML = `<img src=${decodeURIComponent(theDoodleData)}>`
+        document.querySelector('#user-doodle-list').appendChild(doodleDiv);
     }
 }
