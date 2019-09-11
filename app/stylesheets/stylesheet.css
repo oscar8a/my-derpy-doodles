@@ -5,7 +5,6 @@ main{
 }
 
 body {
-    /* background-image: url("https://www.joann.com/on/demandware.static/-/Sites-joann-product-catalog/default/dw3f4eccda/images/hi-res/16/16055873.jpg"); */
     background-color: #f5f3f3f8;
     text-align: center;
 }
@@ -28,7 +27,7 @@ h1{
 
 .grid-container > div{
     text-align: center;
-    padding: 30px;
+    padding: 25px;
     font-size: 25px;
 }
 

@@ -29,7 +29,7 @@ class UserImages {
             .then(doodleUserData => {
                 console.log('Data has been fetched...')
                 console.log(doodleUserData)
-                document.querySelector('#user-doodle-list').innerHTML = `<h2> ${doodleUserData.data.attributes.name} </h2>`
+                document.querySelector('#user-doodle-list').innerHTML = `<h2 id="username-header" data-user-id=${id}> ${doodleUserData.data.attributes.name} </h2>`
 
                 const doodleArr = doodleUserData.data.attributes.doodleimages;
                 console.log(doodleArr)
