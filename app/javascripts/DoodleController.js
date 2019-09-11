@@ -27,7 +27,9 @@ class DoodleController {
 
         // add instructions and buttons to div
         this.makeMyLines = document.createElement("span");
-        this.makeMyLines.innerText = "Make my lines: ";
+        this.makeMyLines.innerHTML = `
+        <strong> Make my lines: </strong>
+        `;
 
         this.doodleControllerDIV.append(this.makeMyLines);
         this.doodleControllerDIV.append(this.thickLineButton);
@@ -63,10 +65,11 @@ class DoodleController {
         event.preventDefault();
         const currentCanvas = document.getElementById("doodle-canvas-element");
         const saveImageInfo = currentCanvas.toDataURL();
+        // save image info is a big ass string
 
         console.log("saving", saveImageInfo);
 
-        // fetch request to update
+        // fetch request to update TESTING
         this.testImage = document.createElement("img");
         this.testImage.setAttribute("src", decodeURIComponent(saveImageInfo));
         this.testDIV.append(this.testImage);

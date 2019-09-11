@@ -1,16 +1,68 @@
+main{
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 body {
-    background-image: url("https://www.joann.com/on/demandware.static/-/Sites-joann-product-catalog/default/dw3f4eccda/images/hi-res/16/16055873.jpg");
-    background-color: #cccccc;
+    /* background-image: url("https://www.joann.com/on/demandware.static/-/Sites-joann-product-catalog/default/dw3f4eccda/images/hi-res/16/16055873.jpg"); */
+    background-color: #f5f3f3f8;
     text-align: center;
 }
 
+h1, h2, h3, h4, h5, a{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns:  5% auto 5%;
+    background-color: #f5f3f3f8;
+    padding: 20px;
+}
+
+.grid-container > div{
+    text-align: center;
+    padding: 30px;
+    font-size: 25px;
+}
+
+.item1 { 
+    grid-column-start: 2;
+    grid-column-end:  3;
+    padding: 25px;
+    background-color: #112C23; 
+    color: #FCCB1A }
+.item2 { 
+    grid-column-start: 2;
+    grid-column-end:  3;
+    padding: 25px;
+    background-color: #F2AE02; }
+.item3 { 
+    grid-column-start: 2;
+    grid-column-end:  3;
+    padding: 25px;
+    background-color: #F7EDD4; 
+    color: #8F003E; }
+.item4 { 
+    grid-column-start: 2;
+    grid-column-end:  3;
+    padding: 25px;
+    background-color: #112C23; 
+    color: #FCCB1A  }
+/* .item5 { grid-area: margin; } */
+
 .derpy-div {
-    background-color: darkslategray;
-    border-style: solid;
+    background-color: #F7F0D4;
+    color: #8F003E;
+    /* border-style: solid; */
     border-radius: 5px;
-    margin: 3% 30%;
     padding: 2%;
-    width: 840px;
 }
 
 .myButton {
@@ -31,7 +83,7 @@ body {
 	border:1px solid #ffaa22;
 	display:inline-block;
 	cursor:pointer;
-	color:#333333;
+	color:#112C23;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
