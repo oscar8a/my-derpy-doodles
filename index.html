@@ -7,11 +7,10 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="app/stylesheets/stylesheet.css">
 </head>
-
     <body>
         <main>
                 <div class="grid-container">
-                     <div class="item1"><h1>My Derpy Doodles</h1></div>
+                    <div class="item1"><h1>My Derpy Doodles</h1></div>
                         
                     <div class="item2"> 
                             <div id='main' class='derpy-div'>
@@ -24,7 +23,9 @@
                                         <button type="submit" class="login-submit">Submit</button>
                                     </form>
                                 </div>
-                                <div id="users-div" class='derpy-div'> </div>
+                                
+                            <div id="users-div" class='derpy-div'> </div>
+                            <div id="user-doodle-list" class='derpy-div'></div>
                     </div>
                     
                     <div class="item3" style="visibility:visible" >
@@ -45,20 +46,30 @@
                             </div>
                     </div>
                     
-                    <div class="item4">footer</div>
+                    <div class="item4">footer
+                            <button id="back-btn">BACK</button>
+                    </div>
+
                 </div>
+                
+            </div>
+
             
 
+            
+        </div>
 
-        </main>
-        
-        <script src="app/javascripts/index.js"></script>
-        <script src="app/javascripts/DoodleApp.js"></script>
-        <script src="app/javascripts/UserLogin.js"></script>
-        <script src="app/javascripts/UserList.js"></script>
-        <script src="app/javascripts/UserImages.js"></script>
-        <script src="app/javascripts/DrawDoodle.js"></script>
-        <script src="app/javascripts/DoodleController.js"></script>
-    </body>
+
+
+    </main>
+
+    <script src="app/javascripts/index.js"></script>
+    <script src="app/javascripts/DoodleApp.js"></script>
+    <script src="app/javascripts/UserLogin.js"></script>
+    <script src="app/javascripts/UserList.js"></script>
+    <script src="app/javascripts/UserImages.js"></script>
+    <script src="app/javascripts/DrawDoodle.js"></script>
+    <script src="app/javascripts/DoodleController.js"></script>
+</body>
 
 </html>

@@ -21,10 +21,6 @@ class UserList {
                         //userLi.setAttribute('class', 'user-button')
                     this.userUl.appendChild(userLi)
                 });
-
-                function getFetchData() {
-                    return usersData.data
-                }
             })
 
         console.log('%c Fetch of Users Completed...', 'color:green')

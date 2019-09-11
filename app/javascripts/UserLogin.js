@@ -1,12 +1,17 @@
 class UserLogin {
     //Login Class 
     constructor(args) {
+        document.querySelector('#main').style.display = 'block'; // show login
+        document.querySelector('#users-div').style.display = 'block'; // show users
+        document.querySelector('#user-doodle-list').style.display = 'none'; // hide User Doodle Images Result
+        document.querySelector(".item3").style.display = "none" // draw image not showing
+
         console.log("UserLogin Constructor Called.")
-        console.log(args)
 
         this.formElement = document.querySelector("#login-form")
 
         this.formElement.addEventListener("submit", this.onFormSubmit)
+
     }
 
     //Function with fetch to create/post new user
@@ -33,6 +38,7 @@ class UserLogin {
                 console.log(json);
                 console.log('%c Database has been Updated with New User', 'color:green')
                     //new UserList(); We can call User List to show after the submit
+                new UserImages(json.id);
             })
             .catch(e => {
                 console.log(e);
