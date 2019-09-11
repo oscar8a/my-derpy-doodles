@@ -46,10 +46,6 @@ class DoodleController {
             this.doodleDIV.append(this.doodleControllerDIV);
     }  // END CONSTRUCTOR
 
-
-
-        } // END CONSTRUCTOR
-
     makeLineThick(event) {
         event.preventDefault();
         console.log("made CHONKY!")
@@ -68,13 +64,14 @@ class DoodleController {
         const saveImageComment = document.getElementById("doodle-comment").value;
         
         // GET USER ID
-        const userID = document.getElementById("username-header").dataset.userId;
+        const userID = document.getElementById("username-header").dataset.userid;
         
         // CREATE IMAGE FILE OF DOODLE
         const currentCanvas = document.getElementById("doodle-canvas-element");
         const saveimageinfo = currentCanvas.toDataURL();
 
         console.log("sending fetch request to save");
+        
         
         fetch(this.imageURL,{
             method: "POST",
