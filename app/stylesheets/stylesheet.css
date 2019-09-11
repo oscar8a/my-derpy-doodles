@@ -65,6 +65,19 @@ h1{
     padding: 2%;
 }
 
+.user-button {
+    background: #666666;
+    background: linear-gradient(#666666, #444444);
+    border: 4px solid #000000;
+    border-radius: 1000px;
+    padding: 8px 20px;
+    color: #ffffff;
+    display: inline-block;
+    font: normal bold 24px/1 "Ubuntu", sans-serif;
+    text-align: center;
+    text-shadow: 1px 1px #000000;
+}
+
 .myButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
