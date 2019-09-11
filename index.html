@@ -7,37 +7,56 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="app/stylesheets/stylesheet.css">
 </head>
+    <body>
+        <main>
+                <div class="grid-container">
+                    <div class="item1"><h1>My Derpy Doodles</h1></div>
+                        
+                    <div class="item2"> 
+                            <div id='main' class='derpy-div'>
+                                    <h2>SIGN UP! 🤪</h2>
+                                    <p></p>
+                                    <form id='login-form'>
+                                        <label for="new-doodleuser"> Enter your Username </label>
+                                        <p></p>
+                                        <input type="text" placeholder="Click here to type...">
+                                        <button type="submit" class="login-submit">Submit</button>
+                                    </form>
+                                </div>
+                                
+                            <div id="users-div" class='derpy-div'> </div>
+                            <div id="user-doodle-list" class='derpy-div'></div>
+                    </div>
+                    
+                    <div class="item3" style="visibility:visible" >
+                            <h2>Draw A Doodle</h2>
+                            <div id="draw-image"> </div>
+                            <div id="form-image-div">
+                                <form id="form-image">
+                                    <div>
+                                        <label for="doodle-title">I call this amazing doodle: </label>
+                                        <input type="text" id="doodle-title" placeholder="I dub thee....">
+                                    </div>
+                                    <div>
+                                        <label for="doodle-comment">Comment: </label>
+                                        <input type="text" id="doodle-comment" maxlength="250" size="45" placeholder="blah blah blah....">
+                                    </div>
+                                    <button type="submit" id="doodle-save" class="myButton">SAVE THIS MASTERPIECE</button>
+                                </form>
+                            </div>
+                    </div>
+                    
+                    <div class="item4">footer
+                            <button id="back-btn">BACK</button>
+                    </div>
 
-<body>
-    <main>
-        <div class="grid-container">
-            <div class="item1">
-                <h1>My Derpy Doodles</h1>
-            </div>
-
-            <div class="item2">
-                <div id='main' class='derpy-div'>
-                    <h2>SIGN UP! 🤪</h2>
-                    <p></p>
-                    <form id='login-form'>
-                        <label for="new-doodleuser"> Enter your Username </label>
-                        <p></p>
-                        <input type="text" placeholder="Click here to type...">
-                        <button type="submit" class="login-submit">Submit</button>
-                    </form>
                 </div>
-                <div id="users-div" class='derpy-div'> </div>
-                <div id="user-doodle-list" class='derpy-div'></div>
+                
             </div>
 
-            <div class="item3">
-                <h2>Draw A Doodle</h2>
-                <div id="draw-image"> </div>
-            </div>
+            
 
-            <div class="item4">footer
-                <button id="back-btn">BACK</button>
-            </div>
+            
         </div>
 
 

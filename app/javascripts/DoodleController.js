@@ -2,10 +2,12 @@ class DoodleController {
     constructor(){
         this.doodleDIV = document.getElementById("draw-image");
         this.doodleControllerDIV = document.createElement("div");
+        this.doodleForm = document.getElementById("form-image")
         this.thickLineButton = document.createElement("a");
         this.thinLineButton = document.createElement("a");
-        this.saveButton = document.createElement("a");
+        this.saveButton = document.getElementById("doodle-save");
         this.lineThickness=10;
+        this.imageURL = "http://localhost:3000/doodleimages/";
 
         // set button CHONKY
         this.thickLineButton.setAttribute("class", "myButton");
@@ -20,9 +22,6 @@ class DoodleController {
         this.thinLineButton.addEventListener("click", this.makeLineThin.bind(this));
 
         // set SAVE button
-        this.saveButton.setAttribute("class", "myButton");
-        this.saveButton.setAttribute("label", "save-button");
-        this.saveButton.innerText = "SAVE THIS MASTERPIECE";
         this.saveButton.addEventListener("click", this.saveImage.bind(this));
 
         // add instructions and buttons to div
@@ -34,11 +33,13 @@ class DoodleController {
         this.doodleControllerDIV.append(this.makeMyLines);
         this.doodleControllerDIV.append(this.thickLineButton);
         this.doodleControllerDIV.append(this.thinLineButton);
-        this.doodleControllerDIV.append(this.saveButton);
         // tracker for line thickness held in dataset
         this.doodleControllerDIV.setAttribute("data-weight", 10);
         this.doodleControllerDIV.setAttribute("id", "doodle-controller");
 
+        // TOGGLE DISPLAYING DOODLE CREATION TOOLS
+        this.doodleDisplayDIV = document.getElementsByClassName("item3");
+        this.doodleDisplayDIV.style = "visibility: visible"; // or "visible/hidden"
 
         // add to DOM
         this.doodleDIV.append(this.doodleControllerDIV);
@@ -46,6 +47,9 @@ class DoodleController {
         // TESTING
         this.testDIV = document.createElement("div");
         this.doodleDIV.append(this.testDIV);
+
+        
+        
         
     }  // END CONSTRUCTOR
 
@@ -63,16 +67,38 @@ class DoodleController {
 
     saveImage(event){
         event.preventDefault();
+        const saveImageTitle = document.getElementById("doodle-title").value;
+        const saveImageComment= document.getElementById("doodle-comment").value;
+        debugger
         const currentCanvas = document.getElementById("doodle-canvas-element");
-        const saveImageInfo = currentCanvas.toDataURL();
+        const saveimageinfo = currentCanvas.toDataURL();
+
+        // const temptitle ="Drawriiinggggg";
+        // const tempmessage ="";
+        // const userid = 1;
+        console.log("sending fetch request to save");
         // save image info is a big ass string
 
-        console.log("saving", saveImageInfo);
+        fetch(this.imageURL,{
+            method: "POST",
+            headers:{
+                "Content-type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                doodleuser_id: userid,
+                title: saveImageTitle,
+                message: saveImageComment,
+                image: saveimageinfo
+            })
+        })
+        .then(response => response.json())
+        .then(imageResponseData => console.log("image has been submitted", imageResponseData));
 
         // fetch request to update TESTING
-        this.testImage = document.createElement("img");
-        this.testImage.setAttribute("src", decodeURIComponent(saveImageInfo));
-        this.testDIV.append(this.testImage);
+        // this.testImage = document.createElement("img");
+        // this.testImage.setAttribute("src", decodeURIComponent(saveImageInfo));
+        // this.testDIV.append(this.testImage);
     }
 
 
