@@ -11,6 +11,8 @@ class UserImages {
         this.showUserImages(args);
     }
 
+    
+
     showUserImages(id) {
         console.log("calling showUserImages using ID:")
         console.log(id)
@@ -41,13 +43,53 @@ class UserImages {
     slapImgToDOM(data) {
         console.log(`In the slapImgtoDOM for ${data.title}`);
         document.querySelector('#user-doodle-list').innerHTML += `<h3>${data.title}</h3>`;
-        console.log(data.image)
         const theDoodleData = data.image;
 
-        const doodleDiv = document.createElement('img')
-        doodleDiv.setAttribute("src", decodeURIComponent(theDoodleData));
+        const doodleImgDIV = document.createElement("div");
+        
+        const doodleIMG = document.createElement('img');
+        doodleIMG.setAttribute("class", "thumbnail-img");
+        doodleIMG.setAttribute("src", decodeURIComponent(theDoodleData));
+        
+        doodleIMG.addEventListener("click", event =>{
+            // THIS SHIT IS BROKEN NEED TO FIX
+            event.preventDefault();
+            const popupDiv = document.createElement("div");
+            const popupSpan = document.createElement("span");
+            const popupIMG = document.createElement("img");
+            
+            popupIMG.setAttribute("src", decodeURIComponent(event.target.src));
+
+            popupDiv.append(popupIMG);
+            popupDiv.setAttribute("class", "popup-window");
+            popupDiv.style.display ="block";
+
+            event.target.append(popupDiv);
+            
+            
+
+
+            
+        })
+        
+        
+        
+
+        // const doodleImgDIV = document.createElement("div");
+        // doodleImgDIV.innerHTML=`
+        //     <div id="myModal" class="modal">
+        //         <span class="close">&times;</span>
+        //         <img class="modal-content" id="img01">
+                
+        //     </div>
+        // `
 
         //.innerHTML = `<img src=${decodeURIComponent(theDoodleData)}>`
-        document.querySelector('#user-doodle-list').appendChild(doodleDiv);
+        document.querySelector('#user-doodle-list').appendChild(doodleIMG);
+
+        
     }
+
+
+
 }
