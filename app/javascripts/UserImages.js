@@ -1,35 +1,27 @@
 class UserImages {
     constructor(args) {
+        console.log("In UserImages Object...")
+
         document.querySelector(".item3").style.display = 'block'; //Draw Image shows
         document.querySelector('#main').style.display = 'none'; //User login goes away
         document.querySelector('#users-div').style.display = 'none'; // User list goes away
         document.querySelector('#user-doodle-list').style.display = 'block'; // show user doodle list
 
-        //adding back button
-        let backBtn = document.getElementById('back-btn')
-        console.log(backBtn)
-        backBtn.addEventListener('click', e => {
-            console.log("Clicking back button")
-            new DoodleApp();
-        })
-
-        console.log("created UserImages Object...")
-            //document.querySelector('.item2').innerHTML = "";
-
-        console.log("Removing Login Show... Calling showUserImages...")
+        console.log("Calling showUserImages...")
         this.showUserImages(args);
     }
 
     showUserImages(id) {
-        console.log("Fetching Images...")
+        console.log("calling showUserImages using ID:")
         console.log(id)
 
+        console.log("Fetching Images...")
         fetch(`http://localhost:3000/doodleusers/${id}`)
             .then(resp => resp.json())
             .then(doodleUserData => {
-                console.log('Data has been fetched...')
+                console.log('Data fetched below...')
                 console.log(doodleUserData)
-          
+
                 let doodleList = document.querySelector('#user-doodle-list')
                 doodleList.innerHTML = `<h2 id="username-header" data-userid=${id}> ${doodleUserData.data.attributes.name} </h2>`
 
@@ -41,6 +33,9 @@ class UserImages {
                     this.slapImgToDOM(doodle)
                 });
             })
+            .catch(e => {
+                console.log(e);
+            });
     }
 
     slapImgToDOM(data) {

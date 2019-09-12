@@ -36,18 +36,14 @@ class DoodleController {
             // tracker for line thickness held in dataset
             this.doodleControllerDIV.setAttribute("data-weight", 10);
             this.doodleControllerDIV.setAttribute("id", "doodle-controller");
-      
-        // TOGGLE DISPLAYING DOODLE CREATION TOOLS
-        //this.doodleDisplayDIV = document.getElementsByClassName("item3");
-        //this.doodleDisplayDIV.style = "visibility: visible"; // or "visible/hidden"
+
+            // TOGGLE DISPLAYING DOODLE CREATION TOOLS
+            //this.doodleDisplayDIV = document.getElementsByClassName("item3");
+            //this.doodleDisplayDIV.style = "visibility: visible"; // or "visible/hidden"
 
 
             // add to DOM
             this.doodleDIV.append(this.doodleControllerDIV);
-    }  // END CONSTRUCTOR
-
-
-
         } // END CONSTRUCTOR
 
     makeLineThick(event) {
@@ -66,38 +62,38 @@ class DoodleController {
         event.preventDefault();
         const saveImageTitle = document.getElementById("doodle-title").value;
         const saveImageComment = document.getElementById("doodle-comment").value;
-        
+
         // GET USER ID
-        const userID = document.getElementById("username-header").dataset.userId;
-        
+        const userID = document.getElementById("username-header").dataset.userid;
+
         // CREATE IMAGE FILE OF DOODLE
         const currentCanvas = document.getElementById("doodle-canvas-element");
         const saveimageinfo = currentCanvas.toDataURL();
 
         console.log("sending fetch request to save");
-        
-        fetch(this.imageURL,{
-            method: "POST",
-            headers:{
-                "Content-type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                doodleuser_id: userID,
-                title: saveImageTitle,
-                message: saveImageComment,
-                image: saveimageinfo
+
+        fetch(this.imageURL, {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    doodleuser_id: userID,
+                    title: saveImageTitle,
+                    message: saveImageComment,
+                    image: saveimageinfo
+                })
             })
-        })
-        .then(response => response.json())
-        .then(this.imageSubmitted);
+            .then(response => response.json())
+            .then(this.imageSubmitted);
 
         // this.testImage = document.createElement("img");
         // this.testImage.setAttribute("src", decodeURIComponent(saveImageInfo));
-        
+
     }
 
-    imageSubmitted(imageData){
+    imageSubmitted(imageData) {
         // CLEAR CANVAS
         const doodleCanvas = document.getElementById("doodle-canvas-element").getContext("2d");
         doodleCanvas.setTransform(1, 0, 0, 1, 0, 0);
@@ -105,10 +101,10 @@ class DoodleController {
 
         // CLEAR FORM
         document.getElementById("form-image").reset();
-        
-        
+
+
     }
-    
+
 
 
 
