@@ -10,8 +10,6 @@ class UserImages {
         this.showUserImages(args);
     }
 
-
-
     showUserImages(id) {
 
         console.log("Fetching Images...")
@@ -33,19 +31,37 @@ class UserImages {
     }
 
     slapImgToDOM(data) {
-        //debugger
         console.log(`In the slapImgtoDOM for ${data.title}`);
-      
+
         const userDoodleList = document.querySelector('#user-doodle-list'),
+            doodleImgDIV = document.createElement('div'),
+            doodleIMG = document.createElement('img'),
             deleteBtn = document.createElement('button'),
             shareBtn = document.createElement('button'),
             doodleBtns = document.createElement('div'),
-            doodleImgDIV = document.createElement('div');
+            theDoodleData = data.image;
+
+        doodleImgDIV.dataset.doodleDivId = `${data.id}`;
+        doodleImgDIV.setAttribute('id', 'doodleImgDiv');
+        doodleImgDIV.innerHTML += `<h3>${data.title}</h3>`;
+
+        doodleIMG.setAttribute("class", "thumbnail-img");
+        doodleIMG.setAttribute("src", decodeURIComponent(theDoodleData));
 
         deleteBtn.innerText = 'DELETE'
         deleteBtn.setAttribute('class', 'imgButtons')
+
         shareBtn.innerText = 'SHARE'
         shareBtn.setAttribute('class', 'imgButtons')
+
+        doodleBtns.appendChild(deleteBtn)
+        doodleBtns.appendChild(shareBtn)
+
+        doodleImgDIV.appendChild(doodleIMG)
+        doodleImgDIV.appendChild(doodleBtns)
+
+        userDoodleList.appendChild(doodleImgDIV);
+
         doodleBtns.addEventListener('click', e => {
             console.log(e)
             if (e.target.innerText === "SHARE") {
@@ -54,51 +70,6 @@ class UserImages {
                 this.deleteDoodle(e);
             } else(console.log("Not Clicking a button"))
         });
-
-        doodleImgDIV.dataset.doodleDivId = `${data.id}`;
-
-        doodleImgDIV.innerHTML += `<h3>${data.title}</h3>`;
-      
-        const theDoodleData = data.image;
-
-        const doodleIMG = document.createElement('img');
-        doodleIMG.setAttribute("class", "thumbnail-img");
-        //doodleIMG.setAttribute("data-imageid", `${data.id}`);
-        doodleIMG.setAttribute("src", decodeURIComponent(theDoodleData));
-
-        // doodleIMG.addEventListener("click", event => {
-        //     // THIS SHIT IS BROKEN NEED TO FIX
-        //     event.preventDefault();
-        //     const popupDiv = document.createElement("div");
-        //     const popupSpan = document.createElement("span");
-        //     const popupIMG = document.createElement("img");
-
-        //     popupIMG.setAttribute("src", decodeURIComponent(event.target.src));
-
-        //     popupDiv.append(popupIMG);
-        //     popupDiv.setAttribute("class", "popup-window");
-        //     popupDiv.style.display = "block";
-
-        //     event.target.append(popupDiv);
-
-        // })
-
-        // const doodleImgDIV = document.createElement("div");
-        // doodleImgDIV.innerHTML=`
-        //     <div id="myModal" class="modal">
-        //         <span class="close">&times;</span>
-        //         <img class="modal-content" id="img01">
-
-        //     </div>
-        // `
-
-        //.innerHTML = `<img src=${decodeURIComponent(theDoodleData)}>`
-
-        doodleImgDIV.appendChild(doodleIMG)
-        doodleBtns.appendChild(deleteBtn)
-        doodleBtns.appendChild(shareBtn)
-        doodleImgDIV.appendChild(doodleBtns)
-        document.querySelector('#user-doodle-list').appendChild(doodleImgDIV);
     }
 
     shareDoodle(e) {
@@ -107,8 +78,8 @@ class UserImages {
 
     deleteDoodle(e) {
         console.log("IN deleteDoodle()")
+        console.log(e)
         const divId = e.target.parentNode.parentNode.dataset.doodleDivId
-        console.log(divId)
 
         const userId = document.querySelector('#username-header').dataset.userid
 
@@ -116,11 +87,10 @@ class UserImages {
                 method: 'DELETE'
             })
             .then(response => response.json())
-            .then(console.log('%c Delete Fetch of doodle Completed...', 'color:red'))
+            .then(res => {
+                console.log(res)
+                console.log('%c Delete Fetch of doodle Completed...', 'color:red')
 
-        //this.showUserImages(userId)
+            })
     }
-
-
-
 }

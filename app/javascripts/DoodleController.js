@@ -111,19 +111,8 @@ class DoodleController {
         document.querySelector(".item3").style.display = "none";
 
         // MODIFY DOM
-        // const slapDOM = new UserImages
-        // slapDOM.slapImgToDOM(imageData)
-        console.log("uploaded image, now trying to refresh", imageData);
-        document.querySelector('#user-doodle-list').innerHTML += `<h3>${imageData.title}</h3>`;
-        const theDoodleData = imageData.image;
-
-        const doodleIMG = document.createElement('img');
-        doodleIMG.setAttribute("class", "thumbnail-img");
-        doodleIMG.setAttribute("data-imageid", `${imageData.id}`);
-        doodleIMG.setAttribute("src", decodeURIComponent(theDoodleData));
-
-        document.querySelector('#user-doodle-list').appendChild(doodleIMG);
-        //WORK ON SLAPPING TO DOM WITH BUTTONS
+        const slapDOM = new UserImages;
+        slapDOM.slapImgToDOM(imageData);
     }
 
 }
