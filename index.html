@@ -15,7 +15,7 @@
                 <h1>My Derpy Doodles</h1>
                 <div class="grid-menu-container">
                         <div class="menu-item1">Main Menu</div>
-                        <div class="menu-item2">Create Doodle </div>
+                        <div class="menu-item2" data-isloggedin = "false">Create Doodle </div>
                         <div class="menu-item3">This Does Nothing </div>
                         <div class="menu-item4">Don't Click This </div>
                     </div>
@@ -40,6 +40,14 @@
                     <div class="item3"  >
                             <h2>Draw A Doodle</h2>
                             <div id="draw-image"> </div>
+                            <div class="grid-colorpicker-container">
+                                <div class="colorpicker-item2">
+                                   <span class="current-color" data-id="red">Color(Colour):  </span>
+                                   <span id="redbutton" data-id="red" > Red </span>
+                                   <span id="bluebutton" data-id="blue" > Blue  </span>
+                                   <span id="greenbutton"  data-id="green" > Green </span>
+                                </div>
+                            </div>
                             <div id="form-image-div">
                                 <form id="form-image">
                                     <div>
@@ -69,6 +77,7 @@
     <script src="app/javascripts/UserImages.js"></script>
     <script src="app/javascripts/DrawDoodle.js"></script>
     <script src="app/javascripts/DoodleController.js"></script>
+    <script src="app/javascripts/MenuController.js"></script>
 </body>
 
 </html>

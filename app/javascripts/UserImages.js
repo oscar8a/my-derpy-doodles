@@ -42,6 +42,7 @@ class UserImages {
 
     slapImgToDOM(data) {
         console.log(`In the slapImgtoDOM for ${data.title}`);
+        
         document.querySelector('#user-doodle-list').innerHTML += `<h3>${data.title}</h3>`;
         const theDoodleData = data.image;
 

@@ -17,7 +17,6 @@ class DrawDoodle{
 
         this.canvasDIV = document.getElementById("draw-image");
         this.canvasDIV.setAttribute("class", "derpy-div");
-        // this.canvasDIV.setAttribute("style", "background-color:orange");
         this.canvasDIV.append(this.doodleCanvas);
         
         // mouse defaults events
@@ -27,7 +26,15 @@ class DrawDoodle{
 
         // drawing variables
         this.lineThickness = 10;
-        this.lineColor  = "#FF0000";
+        this.lineColor  = "red";
+
+        // COLOR SELECTOR
+        this.colorMenuDiv = document.querySelector(".grid-colorpicker-container");
+        this.currentColorSpan = document.querySelector(".current-color");
+        this.redButton=document.getElementById("redbutton");
+        this.blueButton= document.getElementById("bluebutton");
+        this.greenButton=document.getElementById("greenbutton");
+        this.addColorEvents();
         
     }
 
@@ -57,6 +64,7 @@ class DrawDoodle{
 
         if(isDown){
             this.lineThickness = document.getElementById("doodle-controller").dataset.weight;
+            this.lineColor=document.querySelector(".current-color").dataset.id;
 
             doodleCanvas.beginPath();
             doodleCanvas.strokeStyle = this.lineColor; // can set color
@@ -71,7 +79,22 @@ class DrawDoodle{
         this.mouseX = xLoc;
         this.mouseY = yLoc;
     }
+
+    addColorEvents(){
+        
+        this.redButton.style="color:red;"
+        this.blueButton.style="color:blue;"
+        this.greenButton.style="color:green;"
+        
+        this.redButton.addEventListener("click", this.updateColor.bind(this));
+        this.blueButton.addEventListener("click", this.updateColor.bind(this));
+        this.greenButton.addEventListener("click", this.updateColor.bind(this));
+    }
     
+    updateColor(event){
+        this.currentColorSpan.style = `color:${event.target.dataset.id}`;
+        this.currentColorSpan.setAttribute("data-id", `${event.target.dataset.id}`);
+    }
     
 
 
