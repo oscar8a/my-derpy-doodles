@@ -41,6 +41,7 @@ class UserLogin {
                 new UserImages(json.id);
             })
             .catch(e => {
+                debugger
                 console.log(e);
             });
     }

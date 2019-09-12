@@ -62,32 +62,37 @@ class DoodleController {
         event.preventDefault();
         const saveImageTitle = document.getElementById("doodle-title").value;
         const saveImageComment = document.getElementById("doodle-comment").value;
-        
-        // GET USER ID
+         // GET USER ID
         const userID = document.getElementById("username-header").dataset.userid;
         
-        // CREATE IMAGE FILE OF DOODLE
-        const currentCanvas = document.getElementById("doodle-canvas-element");
-        const saveimageinfo = currentCanvas.toDataURL();
+        // CHECK FOR TITLE
+        if(saveImageTitle.length > 0){
+           
+            // CREATE IMAGE FILE OF DOODLE
+            const currentCanvas = document.getElementById("doodle-canvas-element");
+            const saveimageinfo = currentCanvas.toDataURL();
 
-        console.log("sending fetch request to save");
-        
-        
-        fetch(this.imageURL,{
-            method: "POST",
-            headers:{
-                "Content-type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({
-                doodleuser_id: userID,
-                title: saveImageTitle,
-                message: saveImageComment,
-                image: saveimageinfo
+            console.log("sending fetch request to save");
+            
+            fetch(this.imageURL,{
+                method: "POST",
+                headers:{
+                    "Content-type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    doodleuser_id: userID,
+                    title: saveImageTitle,
+                    message: saveImageComment,
+                    image: saveimageinfo
+                })
             })
-        })
-        .then(response => response.json())
-        .then(this.imageSubmitted);
+            .then(response => response.json())
+            .then(this.imageSubmitted);
+
+        }
+
+        
 
         // this.testImage = document.createElement("img");
         // this.testImage.setAttribute("src", decodeURIComponent(saveImageInfo));
@@ -102,11 +107,23 @@ class DoodleController {
 
         // CLEAR FORM
         document.getElementById("form-image").reset();
+
+        // HIDE DOODLE CREATOR
+        document.querySelector(".item3").style.display="none";
         
+        // MODIFY DOM
+        console.log("uploaded image, now trying to refresh", imageData);
+        document.querySelector('#user-doodle-list').innerHTML += `<h3>${imageData.title}</h3>`;
+        const theDoodleData = imageData.image;
+        
+        const doodleIMG = document.createElement('img');
+        doodleIMG.setAttribute("class", "thumbnail-img");
+        doodleIMG.setAttribute("src", decodeURIComponent(theDoodleData));
+
+        document.querySelector('#user-doodle-list').appendChild(doodleIMG);
         
     }
+
     
-
-
 
 }
