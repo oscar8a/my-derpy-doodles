@@ -6,11 +6,9 @@ class UserLogin {
         document.querySelector('#user-doodle-list').style.display = 'none'; // hide User Doodle Images Result
         document.querySelector(".item3").style.display = "none" // draw image not showing
 
-        console.log("UserLogin Constructor Called.")
-
         this.formElement = document.querySelector("#login-form")
         this.formElement.addEventListener("submit", this.onFormSubmit);
-        console.log(this.formElement);
+
         new UserList();
     }
 
@@ -23,10 +21,9 @@ class UserLogin {
     onFormSubmit = (event) => {
         event.preventDefault();
         console.log("onFormSubmit / FORM SUBMITTED")
-            //console.log(event)
+            //document.getElementById("#login-form").reset();
         this.removeFormEventListener();
         let usernameValue = event.target.querySelector('input').value
-            //console.log(usernameValue)
 
         fetch('http://localhost:3000/doodleusers', {
                 method: 'POST',
@@ -40,12 +37,11 @@ class UserLogin {
             })
             .then(response => response.json())
             .then(function(json) {
-                //console.log(JSON.stringify(json));
                 console.log(json);
                 console.log('%c Database has been Updated with New User', 'color:green')
-                    //new UserList(); We can call User List to show after the submit
+
                 new UserImages(json.id);
-                
+
                 document.querySelector(".menu-item2").setAttribute("data-isloggedin", "true");
             })
             .catch(e => {
