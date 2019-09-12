@@ -40,7 +40,7 @@ class DoodleimagesController < ApplicationController
 
     private
     def set_image
-     @image = Doodleimages.find(params[:id])
+     @image = Doodleimage.find(params[:id])
     end
     
     def image_params
