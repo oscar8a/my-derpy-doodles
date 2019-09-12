@@ -45,6 +45,8 @@ class UserLogin {
                 console.log('%c Database has been Updated with New User', 'color:green')
                     //new UserList(); We can call User List to show after the submit
                 new UserImages(json.id);
+                
+                document.querySelector(".menu-item2").setAttribute("data-isloggedin", "true");
             })
             .catch(e => {
                 debugger
