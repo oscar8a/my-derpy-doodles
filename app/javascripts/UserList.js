@@ -22,6 +22,9 @@ class UserList {
                     this.userUl.appendChild(userLi)
                 });
             })
+            .catch(e => {
+                console.log(e);
+            });
 
         console.log('%c Fetch of Users Completed...', 'color:green')
         console.log(userDiv)

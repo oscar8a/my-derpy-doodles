@@ -36,10 +36,10 @@ class DoodleController {
             // tracker for line thickness held in dataset
             this.doodleControllerDIV.setAttribute("data-weight", 10);
             this.doodleControllerDIV.setAttribute("id", "doodle-controller");
-      
-        // TOGGLE DISPLAYING DOODLE CREATION TOOLS
-        //this.doodleDisplayDIV = document.getElementsByClassName("item3");
-        //this.doodleDisplayDIV.style = "visibility: visible"; // or "visible/hidden"
+
+            // TOGGLE DISPLAYING DOODLE CREATION TOOLS
+            //this.doodleDisplayDIV = document.getElementsByClassName("item3");
+            //this.doodleDisplayDIV.style = "visibility: visible"; // or "visible/hidden"
 
 
             // add to DOM
@@ -62,6 +62,7 @@ class DoodleController {
         event.preventDefault();
         const saveImageTitle = document.getElementById("doodle-title").value;
         const saveImageComment = document.getElementById("doodle-comment").value;
+
          // GET USER ID
         const userID = document.getElementById("username-header").dataset.userid;
         
@@ -92,14 +93,12 @@ class DoodleController {
 
         }
 
-        
-
         // this.testImage = document.createElement("img");
         // this.testImage.setAttribute("src", decodeURIComponent(saveImageInfo));
-        
+
     }
 
-    imageSubmitted(imageData){
+    imageSubmitted(imageData) {
         // CLEAR CANVAS
         const doodleCanvas = document.getElementById("doodle-canvas-element").getContext("2d");
         doodleCanvas.setTransform(1, 0, 0, 1, 0, 0);
@@ -121,9 +120,6 @@ class DoodleController {
         doodleIMG.setAttribute("src", decodeURIComponent(theDoodleData));
 
         document.querySelector('#user-doodle-list').appendChild(doodleIMG);
-        
     }
-
-    
 
 }

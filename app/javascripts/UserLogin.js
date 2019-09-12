@@ -9,18 +9,24 @@ class UserLogin {
         console.log("UserLogin Constructor Called.")
 
         this.formElement = document.querySelector("#login-form")
+        this.formElement.addEventListener("submit", this.onFormSubmit);
+        console.log(this.formElement);
+        new UserList();
+    }
 
-        this.formElement.addEventListener("submit", this.onFormSubmit)
-
+    //this function fixes the piling event listeners from submit
+    removeFormEventListener = () => {
+        this.formElement.removeEventListener("submit", this.onFormSubmit);
     }
 
     //Function with fetch to create/post new user
     onFormSubmit = (event) => {
         event.preventDefault();
         console.log("onFormSubmit / FORM SUBMITTED")
-
+            //console.log(event)
+        this.removeFormEventListener();
         let usernameValue = event.target.querySelector('input').value
-        console.log(usernameValue)
+            //console.log(usernameValue)
 
         fetch('http://localhost:3000/doodleusers', {
                 method: 'POST',
