@@ -119,6 +119,7 @@ class DoodleController {
 
         const doodleIMG = document.createElement('img');
         doodleIMG.setAttribute("class", "thumbnail-img");
+        doodleIMG.setAttribute("data-imageid", `${imageData.id}`);
         doodleIMG.setAttribute("src", decodeURIComponent(theDoodleData));
 
         document.querySelector('#user-doodle-list').appendChild(doodleIMG);

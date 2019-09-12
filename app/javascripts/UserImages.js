@@ -35,6 +35,7 @@ class UserImages {
     slapImgToDOM(data) {
         //debugger
         console.log(`In the slapImgtoDOM for ${data.title}`);
+      
         const userDoodleList = document.querySelector('#user-doodle-list'),
             deleteBtn = document.createElement('button'),
             shareBtn = document.createElement('button'),
@@ -57,7 +58,7 @@ class UserImages {
         doodleImgDIV.dataset.doodleDivId = `${data.id}`;
 
         doodleImgDIV.innerHTML += `<h3>${data.title}</h3>`;
-
+      
         const theDoodleData = data.image;
 
         const doodleIMG = document.createElement('img');

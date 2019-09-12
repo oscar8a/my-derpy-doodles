@@ -34,6 +34,7 @@ class UserList {
             console.log(e)
             if (e.target.className === 'user-button') {
                 new UserImages(e.target.parentNode.dataset.id);
+                document.querySelector(".menu-item2").setAttribute("data-isloggedin", "true");
             }
         });
     }
