@@ -110,6 +110,9 @@ class DoodleController {
         // HIDE DOODLE CREATOR
         document.querySelector(".item3").style.display = "none";
 
+        // UPDATE LOGGED IN
+        
+
         // MODIFY DOM
         const slapDOM = new UserImages;
         slapDOM.slapImgToDOM(imageData);

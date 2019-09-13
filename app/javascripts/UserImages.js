@@ -82,6 +82,8 @@ class UserImages {
         const divId = e.target.parentNode.parentNode.dataset.doodleDivId
 
         const userId = document.querySelector('#username-header').dataset.userid
+        
+        document.querySelector(`[data-doodle-div-id="${divId}"]`).remove();
 
         fetch(`http://localhost:3000/doodleimages/${divId}`, {
                 method: 'DELETE'
