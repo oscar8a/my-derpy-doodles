@@ -3,6 +3,7 @@ class MenuController{
         // MAIN MENU BUTTONS
         this.mainMenuButton = document.querySelector(".menu-item1");
         this.newDoodleMenuButton = document.querySelector(".menu-item2");
+        this.saveImageButton = document.getElementById("doodle-save");
         
         // SHOW/HIDE ELEMENTS
         this.newUserSignupDIV = document.querySelector("#main");
@@ -12,6 +13,7 @@ class MenuController{
 
         this.mainMenuButton.addEventListener("click", this.goToMainMenu.bind(this));
         this.newDoodleMenuButton.addEventListener("click", this.goToDrawDoodle.bind(this));
+        this.saveImageButton.addEventListener("click",this.saveImageAction.bind(this));
 
     }
 
@@ -38,6 +40,18 @@ class MenuController{
             
     }
 
+    saveImageAction(event){
+        event.preventDefault();
+        // ONLY TRIGGER IF TITLE IS ENTERED
+        const saveImageTitle = document.getElementById("doodle-title").value;
+
+        if (saveImageTitle.length > 0) {
+             this.newUserSignupDIV.style.display = "none";
+            this.userListDIV.style.display = "none";
+            this.imageGallery.style.display = "block";
+            this.doodleCreator.style.display = "none";
+        }
+    }
 
 
 }

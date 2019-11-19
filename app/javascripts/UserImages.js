@@ -2,6 +2,8 @@ class UserImages {
     constructor(args) {
         console.log("In UserImages Object... ARGS:" + `${args}`)
 
+        // need to update this and have it controlled by the menu controller
+        // instead of having it reset all of the display divs each time an image is saved/dom is updated
         document.querySelector(".item3").style.display = 'block'; //Draw Image shows
         document.querySelector('#main').style.display = 'none'; //User login goes away
         document.querySelector('#users-div').style.display = 'none'; // User list goes away
@@ -45,6 +47,7 @@ class UserImages {
         doodleImgDIV.setAttribute('id', 'doodleImgDiv');
         doodleImgDIV.innerHTML += `<h3>${data.title}</h3>`;
 
+        // CONVERTING FROM A DATA URI TO A PNG IMAGE 
         doodleIMG.setAttribute("class", "thumbnail-img");
         doodleIMG.setAttribute("src", decodeURIComponent(theDoodleData));
 

@@ -72,8 +72,7 @@ class DoodleController {
             // CREATE IMAGE FILE OF DOODLE
             const currentCanvas = document.getElementById("doodle-canvas-element");
             const saveimageinfo = currentCanvas.toDataURL();
-
-            console.log("sending fetch request to save");
+            console.log("DataURI:", saveimageinfo);
 
             fetch(this.imageURL, {
                     method: "POST",
